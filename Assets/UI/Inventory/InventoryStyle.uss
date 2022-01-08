@@ -40,6 +40,10 @@
     transform-origin: center;
     position: absolute;
     visibility: hidden;
+    border-left-color: rgba(9, 255, 0, 255);
+    border-right-color: rgba(9, 255, 0, 255);
+    border-top-color: rgba(9, 255, 0, 255);
+    border-bottom-color: rgba(9, 255, 0, 255);
 }
 
 .preview_visual_container {
@@ -47,7 +51,6 @@
     width: 100%;
     position: absolute;
     padding: 0;
-    background-color: rgb(14, 14, 14);
     border-width: 1px;
     border-color: rgb(75, 75, 75);
 }
@@ -56,6 +59,7 @@
     height: 100%;
     width: 100%;
     -unity-background-scale-mode: scale-to-fit;
+    background-color: rgb(0, 0, 0);
 }
 
 .button {
@@ -72,6 +76,69 @@
     font-size: 24px;
     -unity-font-style: bold;
     background-color: rgb(226, 137, 45);
+    border-left-color: rgb(226, 137, 45);
+    border-right-color: rgb(226, 137, 45);
+    border-top-color: rgb(226, 137, 45);
+    border-bottom-color: rgb(226, 137, 45);
+    color: rgb(238, 238, 238);
+}
+
+.button:hover {
+    flex-grow: 1;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 100%;
+    font-size: 24px;
+    -unity-font-style: bold;
+    background-color: rgb(209, 157, 104);
+    border-left-color: rgb(226, 137, 45);
+    border-right-color: rgb(226, 137, 45);
+    border-top-color: rgb(226, 137, 45);
+    border-bottom-color: rgb(226, 137, 45);
+    color: rgb(238, 238, 238);
+}
+
+.button:active {
+    flex-grow: 1;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 100%;
+    font-size: 24px;
+    -unity-font-style: bold;
+    background-color: rgb(183, 100, 15);
+    border-left-color: rgb(226, 137, 45);
+    border-right-color: rgb(226, 137, 45);
+    border-top-color: rgb(226, 137, 45);
+    border-bottom-color: rgb(226, 137, 45);
+    color: rgb(238, 238, 238);
+}
+
+.button:disabled {
+    flex-grow: 1;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 100%;
+    font-size: 24px;
+    -unity-font-style: bold;
+    background-color: rgb(108, 89, 69);
     border-left-color: rgb(226, 137, 45);
     border-right-color: rgb(226, 137, 45);
     border-top-color: rgb(226, 137, 45);

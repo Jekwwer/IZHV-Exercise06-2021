@@ -154,8 +154,9 @@ public class InventoryManager : MonoBehaviour
          * be called.
          */
         
-        
-        
+        mItemCreateButton = itemDetails.Q<Button>("ItemDetailButtonCreate");
+        mItemCreateButton.clicked += () => CreateItem();
+
         
         await UniTask.WaitForEndOfFrame();
 
@@ -353,14 +354,30 @@ public class InventoryManager : MonoBehaviour
          * Finally, you should also DISABLE the button when we have no item available
          * and provide some default texts to let the player know what to expect.
          */
-        
+
         if (item == null)
         { // We have no item selected -> Provide some default information.
+            mItemDetailName.text = "No item selected";
+            mItemDetailDescription.text = "Select one!";
+            mItemDetailCost.text = "-";
+            mItemCreateButton.SetEnabled(false);
         }
         else
         { // We have item selected -> Use the item information.
+            mItemDetailName.text = item.definition.readableName;
+            mItemDetailDescription.text = item.definition.readableDescription;
+            mItemDetailCost.text = item.definition.cost.ToString();
+
+            if (availableCurrency >= item.definition.cost)
+            {
+                mItemCreateButton.SetEnabled(true);
+            }
+            else
+            {
+                mItemCreateButton.SetEnabled(false);
+            }
         }
-        
+
         selectedItem = item;
     }
 
@@ -391,9 +408,18 @@ public class InventoryManager : MonoBehaviour
          * it from the cost (itemDefinition.cost) from availableCurrency property.
          * These items are not cheap to make!
          */
-        
+
         var itemDefinition = selectedItem?.definition;
-        
+
+        if (selectedItem != null)
+        {
+            if (availableCurrency >= itemDefinition.cost)
+            {
+                Instantiate(itemDefinition.prefab, createDestination.transform);
+                availableCurrency -= itemDefinition.cost;
+                return true;
+            }
+        }
         return false;
     }
 }
